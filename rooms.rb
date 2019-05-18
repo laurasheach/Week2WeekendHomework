@@ -1,6 +1,8 @@
+require('pry')
+
 class Rooms
 
-  attr_accessor :room_name, :songs, :max_guests, :room_charge, :room_till
+  attr_accessor :room_name, :songs, :max_guests,:room_charge, :room_till
 
   def initialize(room_name, songs, max_guests, room_charge, room_till)
     @room_name = room_name
@@ -34,5 +36,11 @@ class Rooms
       return "Sorry, the room is full"
     end
   end
+
+  def add_room_charge_to_till(guest)
+      @room_till += @room_charge
+  end
+
+
 
 end

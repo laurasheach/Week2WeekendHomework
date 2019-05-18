@@ -8,11 +8,11 @@ class TestRooms < MiniTest::Test
 
   def setup
 
-    @guest1 = Guest.new("Sara")
-    @guest2 = Guest.new("Ken")
-    @guest3 = Guest.new("Zoe")
-    @guest4 = Guest.new("Steve")
-    @guest5 = Guest.new("Jo")
+    @guest1 = Guest.new("Sara", 25)
+    @guest2 = Guest.new("Ken", 75)
+    @guest3 = Guest.new("Zoe", 100)
+    @guest4 = Guest.new("Steve", 50)
+    @guest5 = Guest.new("Jo", 5)
 
     @song1 = Song.new("Ian Brown", "F.E.A.R")
     @song2 = Song.new("Oasis", "Live Forever")
@@ -38,6 +38,10 @@ class TestRooms < MiniTest::Test
 
   def test_max_guests
     assert_equal(4, @room2.max_guests)
+  end
+
+  def test_room_charge
+    assert_equal(10, @room1.room_charge)
   end
 
   def test_opening_till_balance
@@ -82,7 +86,10 @@ class TestRooms < MiniTest::Test
   end
 
   def test_add_room_charge_to_till
-    
+    assert_equal(110, @room2.add_room_charge_to_till(@room2))
   end
+
+
+
 
 end
