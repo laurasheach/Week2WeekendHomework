@@ -3,6 +3,7 @@ require('minitest/rg')
 require_relative('../rooms.rb')
 require_relative('../guest.rb')
 require_relative('../song.rb')
+require_relative('../bar_tab.rb')
 
 class TestRooms < MiniTest::Test
 
@@ -22,6 +23,8 @@ class TestRooms < MiniTest::Test
 
     @room1 = Rooms.new("Room 1", [@song1, @song2, @song3], 4, 10, 100)
     @room2 = Rooms.new("Room 2", [@song1, @song2, @song3], 4, 10, 100)
+
+    @bar_tab = BarTab.new(0)
 
   end
 
@@ -86,9 +89,10 @@ class TestRooms < MiniTest::Test
     assert_equal("Sorry, the room is full", @room2.max_guest_not_exceeded)
   end
 
-  def test_add_room_charge_to_till
-    assert_equal(110, @room2.add_room_charge_to_till(@room2))
-  end
+  # Used prior to Advanced Extensions
+  # def test_add_room_charge_to_till
+  #   assert_equal(110, @room2.add_room_charge_to_till(@room2))
+  # end
 
   def test_find_favourite_song__pass
     assert_equal("Whoo!", @room1.find_favourite_song(@guest1.favourite_song))

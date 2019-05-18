@@ -37,9 +37,10 @@ class Rooms
     end
   end
 
-  def add_room_charge_to_till(guest)
-      @room_till += @room_charge
-  end
+  # Used prior to Advanced Extensions
+  # def add_room_charge_to_till(guest)
+  #     @room_till += @room_charge
+  # end
 
   def find_favourite_song(favourite_song)
     for song in @songs
@@ -48,8 +49,9 @@ class Rooms
       end
       return "Sorry, we don't have that song"
     end
-
   end
+
+
 
 
 end
