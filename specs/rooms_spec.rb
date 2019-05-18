@@ -8,16 +8,17 @@ class TestRooms < MiniTest::Test
 
   def setup
 
-    @guest1 = Guest.new("Sara", 25)
-    @guest2 = Guest.new("Ken", 75)
-    @guest3 = Guest.new("Zoe", 100)
-    @guest4 = Guest.new("Steve", 50)
-    @guest5 = Guest.new("Jo", 5)
-
     @song1 = Song.new("Ian Brown", "F.E.A.R")
     @song2 = Song.new("Oasis", "Live Forever")
     @song3 = Song.new("Underworld", "Born Slippy")
-    @song4 = Song.new("The Power of Love", "Frankie Goes To Hollywood")
+    @song4 = Song.new("Frankie Goes to Hollywood", "The Power of Love")
+    @song5 = Song.new("Coldplay", "Adventure of a Lifetime")
+
+    @guest1 = Guest.new("Sara", 25, @song1)
+    @guest2 = Guest.new("Ken", 75, @song2)
+    @guest3 = Guest.new("Zoe", 100, @song3)
+    @guest4 = Guest.new("Steve", 50, @song4)
+    @guest5 = Guest.new("Jo", 5, @song5)
 
     @room1 = Rooms.new("Room 1", [@song1, @song2, @song3], 4, 10, 100)
     @room2 = Rooms.new("Room 2", [@song1, @song2, @song3], 4, 10, 100)
@@ -89,7 +90,12 @@ class TestRooms < MiniTest::Test
     assert_equal(110, @room2.add_room_charge_to_till(@room2))
   end
 
+  def test_find_favourite_song__pass
+    assert_equal("Whoo!", @room1.find_favourite_song(@guest1.favourite_song))
+  end
 
-
+  def test_find_favourite_song__fail
+    assert_equal("Sorry, we don't have that song", @room1.find_favourite_song(@guest5.favourite_song))
+  end
 
 end

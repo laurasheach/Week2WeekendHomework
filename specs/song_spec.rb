@@ -8,7 +8,8 @@ class TestSong < MiniTest::Test
     @song1 = Song.new("Ian Brown", "F.E.A.R")
     @song2 = Song.new("Oasis", "Live Forever")
     @song3 = Song.new("Underworld", "Born Slippy")
-    @song4 = Song.new("The Power of Love", "Frankie Goes To Hollywood")
+    @song4 = Song.new("Frankie Goes to Hollywood", "The Power of Love")
+    @song5 = Song.new("Coldplay", "Adventure of a Lifetime")
   end
 
   def test_artist_name

@@ -41,6 +41,15 @@ class Rooms
       @room_till += @room_charge
   end
 
+  def find_favourite_song(favourite_song)
+    for song in @songs
+      if song == favourite_song
+        return "Whoo!"
+      end
+      return "Sorry, we don't have that song"
+    end
+
+  end
 
 
 end
