@@ -4,6 +4,7 @@ require_relative('../rooms.rb')
 require_relative('../guest.rb')
 require_relative('../song.rb')
 require_relative('../bar_tab.rb')
+require_relative('../drink.rb')
 
 class TestRooms < MiniTest::Test
 
@@ -24,7 +25,11 @@ class TestRooms < MiniTest::Test
     @room1 = Rooms.new("Room 1", [@song1, @song2, @song3], 4, 10, 100)
     @room2 = Rooms.new("Room 2", [@song1, @song2, @song3], 4, 10, 100)
 
-    @bar_tab = BarTab.new(0)
+    @drink1 = Drink.new("beer", 5)
+    @drink2 = Drink.new("wine", 10)
+    @drink3 = Drink.new("whisky", 15)
+
+    @bar_tab = BarTab.new(0, [@drink1, @drink2, @drink3])
 
   end
 
